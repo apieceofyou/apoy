@@ -25,7 +25,7 @@ const Index = () => {
         
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <h1 className="font-display text-6xl md:text-8xl lg:text-display-xl text-white mb-6 animate-fade-in">
-            APOY
+            apoy
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-4 animate-slide-up font-serif italic">
             A Piece of You — A Cultural Manifesto

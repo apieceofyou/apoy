@@ -35,7 +35,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="font-display text-3xl md:text-4xl text-primary hover:opacity-80 transition-opacity">
-            APOY
+            apoy
           </Link>
 
           {/* Desktop Navigation */}

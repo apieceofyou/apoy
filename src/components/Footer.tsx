@@ -45,7 +45,7 @@ const Footer = () => {
         {/* Footer Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="font-display text-2xl mb-4">APOY</h3>
+            <h3 className="font-display text-2xl mb-4">apoy</h3>
             <p className="text-sm text-primary-foreground/70">
               A Cultural Manifesto. Where identity meets craft.
             </p>
