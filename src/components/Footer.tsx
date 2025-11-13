@@ -24,7 +24,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 lg:px-12 py-16">
         {/* Newsletter Section */}
         <div className="max-w-2xl mx-auto text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl mb-4">Join the APOY Circle</h2>
+          <h2 className="font-display text-4xl md:text-5xl mb-4">Join the apoy circle</h2>
           <p className="text-primary-foreground/80 mb-6">
             Get Issue drops, event invites, and behind-the-scenes access. Free for launch.
           </p>
@@ -60,11 +60,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/journal" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Journal
-                </Link>
-              </li>
-              <li>
                 <Link to="/manifesto" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                   Manifesto
                 </Link>
@@ -72,6 +67,11 @@ const Footer = () => {
               <li>
                 <Link to="/about" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -86,14 +86,9 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/collaborate" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Collaborate
-                </Link>
-              </li>
-              <li>
-                <a href="mailto:hello@apoymagazine.com" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                <Link to="/contact" className="text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
