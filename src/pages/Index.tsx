@@ -60,10 +60,19 @@ const Index = () => {
         className={`fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-700 ${
           isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        style={{ backgroundColor: "#5B2228" }}
+        style={{ 
+          background: "radial-gradient(ellipse at center, #7a3038 0%, #5B2228 50%, #3d171b 100%)"
+        }}
       >
-        <div className="text-center animate-scale-in">
-          <h1 className="font-display text-6xl md:text-8xl text-white mb-4">
+        {/* Subtle glow effect */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            background: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 0%, transparent 50%)"
+          }}
+        />
+        <div className="text-center animate-scale-in relative z-10">
+          <h1 className="font-display text-6xl md:text-8xl text-white mb-4 drop-shadow-lg">
             apoy
           </h1>
           <p 
