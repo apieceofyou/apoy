@@ -34,6 +34,15 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Generate floating particles
+  const particles = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    delay: Math.random() * 8,
+    duration: 8 + Math.random() * 12,
+    size: 2 + Math.random() * 4,
+  }));
+
   return (
     <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <div 
@@ -46,13 +55,30 @@ const Index = () => {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
       </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute rounded-full bg-white/20 animate-float"
+            style={{
+              left: `${particle.left}%`,
+              width: `${particle.size}px`,
+              height: `${particle.size}px`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`,
+            }}
+          />
+        ))}
+      </div>
       
       <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
         <h1 className="font-display text-7xl md:text-8xl lg:text-9xl text-white mb-6 animate-fade-in">
           apoy
         </h1>
-        <p className="font-display text-2xl md:text-3xl text-white/90 mb-4 animate-slide-up">
-          A Piece of You
+        <p className="font-display text-2xl md:text-3xl text-white/90 mb-4 animate-slide-up underline underline-offset-8 decoration-1">
+          a piece of you
         </p>
         <p className="text-4xl md:text-5xl font-light text-white mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
           Coming Soon

@@ -95,6 +95,12 @@ export default {
           from: { opacity: "0", clipPath: "inset(0 100% 0 0)" },
           to: { opacity: "1", clipPath: "inset(0 0 0 0)" },
         },
+        "float": {
+          "0%": { transform: "translateY(100vh)", opacity: "0" },
+          "10%": { opacity: "0.6" },
+          "90%": { opacity: "0.6" },
+          "100%": { transform: "translateY(-100vh)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -102,6 +108,7 @@ export default {
         "fade-in": "fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
         "slide-up": "slide-up 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
         "reveal": "reveal 1.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        "float": "float 10s linear infinite",
       },
     },
   },
