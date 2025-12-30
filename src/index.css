@@ -145,13 +145,24 @@ All colors MUST be HSL.
 
   /* Handwriting animation for loading screen */
   .animate-handwrite {
-    background: linear-gradient(90deg, white 50%, transparent 50%);
+    position: relative;
+    background: linear-gradient(90deg, hsl(var(--primary-foreground)) 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: handwrite 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: handwrite 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  .animate-handwrite::after {
+    content: '|';
+    position: absolute;
+    right: -0.1em;
+    top: 0;
+    color: hsl(var(--primary-foreground));
+    animation: cursor-blink 0.6s ease-in-out infinite, cursor-move 2.5s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    opacity: 0;
   }
 
   @keyframes handwrite {
@@ -160,6 +171,29 @@ All colors MUST be HSL.
     }
     100% {
       background-position: 0% 0;
+    }
+  }
+
+  @keyframes cursor-blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes cursor-move {
+    0% {
+      right: calc(100% - 0.1em);
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      right: -0.1em;
+      opacity: 0;
     }
   }
 }
