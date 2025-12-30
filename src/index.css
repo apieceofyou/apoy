@@ -142,4 +142,24 @@ All colors MUST be HSL.
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+  /* Handwriting animation for loading screen */
+  .animate-handwrite {
+    background: linear-gradient(90deg, white 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: handwrite 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes handwrite {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: 0% 0;
+    }
+  }
 }
