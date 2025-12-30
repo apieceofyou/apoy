@@ -77,11 +77,8 @@ const Index = () => {
         <h1 className="font-display text-7xl md:text-8xl lg:text-9xl text-white mb-6 animate-fade-in">
           apoy
         </h1>
-        <p className="font-display text-2xl md:text-3xl text-white/90 mb-4 animate-slide-up underline underline-offset-8 decoration-1">
+        <p className="font-display text-2xl md:text-3xl text-white/90 mb-10 animate-slide-up underline underline-offset-8 decoration-1">
           a piece of you
-        </p>
-        <p className="text-4xl md:text-5xl font-light text-white mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          Coming Soon
         </p>
 
         {/* Countdown Timer */}
