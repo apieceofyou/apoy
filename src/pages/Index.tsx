@@ -57,12 +57,12 @@ const Index = () => {
     <div className="min-h-screen relative">
       {/* Loading Screen */}
       <div 
-        className={`fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700 ${
+        className={`fixed inset-0 bg-primary flex items-center justify-center z-50 transition-opacity duration-700 ${
           isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div className="text-center overflow-hidden">
-          <h1 className="font-display text-6xl md:text-8xl text-white animate-handwrite">
+          <h1 className="font-display text-6xl md:text-8xl text-primary-foreground animate-handwrite">
             apoy
           </h1>
         </div>
