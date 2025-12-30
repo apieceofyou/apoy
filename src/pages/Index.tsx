@@ -61,10 +61,16 @@ const Index = () => {
           isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <div className="text-center overflow-hidden">
-          <h1 className="font-display text-6xl md:text-8xl text-primary-foreground animate-handwrite">
+        <div className="text-center">
+          <h1 className="font-display text-6xl md:text-8xl text-primary-foreground mb-4 animate-fade-in">
             apoy
           </h1>
+          <p 
+            className="font-display text-xl md:text-2xl text-primary-foreground/80 animate-fade-in"
+            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
+          >
+            a piece of you
+          </p>
         </div>
       </div>
 
