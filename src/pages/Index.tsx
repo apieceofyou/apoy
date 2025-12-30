@@ -77,7 +77,7 @@ const Index = () => {
         <h1 className="font-display text-7xl md:text-8xl lg:text-9xl text-white mb-6 animate-fade-in">
           apoy
         </h1>
-        <p className="font-display text-2xl md:text-3xl text-white/90 mb-10 animate-slide-up underline underline-offset-8 decoration-1">
+        <p className="font-display text-2xl md:text-3xl text-white/90 mb-10 animate-slide-up">
           a piece of you
         </p>
 
