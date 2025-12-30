@@ -57,9 +57,10 @@ const Index = () => {
     <div className="min-h-screen relative">
       {/* Loading Screen */}
       <div 
-        className={`fixed inset-0 bg-primary flex items-center justify-center z-50 transition-opacity duration-700 ${
+        className={`fixed inset-0 flex items-center justify-center z-50 transition-opacity duration-700 ${
           isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
+        style={{ backgroundColor: "#5B2228" }}
       >
         <div className="text-center">
           <h1 className="font-display text-6xl md:text-8xl text-primary-foreground mb-4 animate-fade-in">
