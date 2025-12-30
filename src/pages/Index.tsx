@@ -5,6 +5,7 @@ import heroImage from "@/assets/hero-craft.jpg";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -13,11 +14,20 @@ const Index = () => {
   });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Wait for writing animation to complete, then fade out
+    const loadingTimer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
 
-    return () => clearTimeout(timer);
+    // Show content slightly before loading disappears for smooth transition
+    const contentTimer = setTimeout(() => {
+      setShowContent(true);
+    }, 2800);
+
+    return () => {
+      clearTimeout(loadingTimer);
+      clearTimeout(contentTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -43,90 +53,98 @@ const Index = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-center animate-pulse">
-          <h1 className="font-display text-6xl md:text-7xl text-white">
+  return (
+    <div className="min-h-screen relative">
+      {/* Loading Screen */}
+      <div 
+        className={`fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity duration-700 ${
+          isLoading ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="text-center overflow-hidden">
+          <h1 className="font-display text-6xl md:text-8xl text-white animate-handwrite">
             apoy
           </h1>
         </div>
       </div>
-    );
-  }
 
-  return (
-    <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
+      {/* Main Content */}
       <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className={`min-h-screen relative flex items-center justify-center overflow-hidden transition-opacity duration-1000 ${
+          showContent ? "opacity-100" : "opacity-0"
+        }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
-      </div>
-      
-      <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
-        <h1 className="font-display text-7xl md:text-8xl lg:text-9xl text-white mb-6 animate-fade-in">
-          apoy
-        </h1>
-        <p className="font-display text-2xl md:text-3xl text-white/90 mb-10 animate-slide-up">
-          a piece of you
-        </p>
-
-        {/* Countdown Timer */}
-        <div className="flex justify-center gap-4 md:gap-8 mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          {[
-            { value: timeLeft.days, label: "Days" },
-            { value: timeLeft.hours, label: "Hours" },
-            { value: timeLeft.minutes, label: "Minutes" },
-            { value: timeLeft.seconds, label: "Seconds" },
-          ].map((item) => (
-            <div key={item.label} className="text-center">
-              <div className="text-3xl md:text-5xl font-light text-white tabular-nums">
-                {String(item.value).padStart(2, "0")}
-              </div>
-              <div className="text-xs md:text-sm uppercase tracking-widest text-white/70 mt-1">
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-white/80 mb-8 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-          A cultural manifesto where identity meets craft.
-        </p>
-
-        <Link 
-          to="/subscribe" 
-          className="inline-block text-sm uppercase tracking-widest text-white hover:text-white/80 transition-colors border-b border-white pb-1 mb-10 animate-slide-up"
-          style={{ animationDelay: "0.4s" }}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          Get notified when we launch
-        </Link>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
+        </div>
+        
+        <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
+          <h1 className="font-display text-7xl md:text-8xl lg:text-9xl text-white mb-6 animate-fade-in">
+            apoy
+          </h1>
+          <p className="font-display text-2xl md:text-3xl text-white/90 mb-10 animate-slide-up">
+            a piece of you
+          </p>
 
-        {/* Social Links */}
-        <div className="flex justify-center gap-6 animate-slide-up" style={{ animationDelay: "0.5s" }}>
-          <a 
-            href="https://instagram.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors"
-            aria-label="Follow us on Instagram"
+          {/* Countdown Timer */}
+          <div className="flex justify-center gap-4 md:gap-8 mb-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            {[
+              { value: timeLeft.days, label: "Days" },
+              { value: timeLeft.hours, label: "Hours" },
+              { value: timeLeft.minutes, label: "Minutes" },
+              { value: timeLeft.seconds, label: "Seconds" },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <div className="text-3xl md:text-5xl font-light text-white tabular-nums">
+                  {String(item.value).padStart(2, "0")}
+                </div>
+                <div className="text-xs md:text-sm uppercase tracking-widest text-white/70 mt-1">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-white/80 mb-8 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+            A cultural manifesto where identity meets craft.
+          </p>
+
+          <Link 
+            to="/subscribe" 
+            className="inline-block text-sm uppercase tracking-widest text-white hover:text-white/80 transition-colors border-b border-white pb-1 mb-10 animate-slide-up"
+            style={{ animationDelay: "0.4s" }}
           >
-            <Instagram size={24} />
-          </a>
-          <a 
-            href="https://twitter.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-white/70 hover:text-white transition-colors"
-            aria-label="Follow us on Twitter"
-          >
-            <Twitter size={24} />
-          </a>
+            Get notified when we launch
+          </Link>
+
+          {/* Social Links */}
+          <div className="flex justify-center gap-6 animate-slide-up" style={{ animationDelay: "0.5s" }}>
+            <a 
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Follow us on Instagram"
+            >
+              <Instagram size={24} />
+            </a>
+            <a 
+              href="https://twitter.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-white transition-colors"
+              aria-label="Follow us on Twitter"
+            >
+              <Twitter size={24} />
+            </a>
+          </div>
         </div>
       </div>
     </div>
