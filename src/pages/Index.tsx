@@ -62,13 +62,13 @@ const Index = () => {
         }`}
         style={{ backgroundColor: "#5B2228" }}
       >
-        <div className="text-center">
-          <h1 className="font-display text-6xl md:text-8xl text-primary-foreground mb-4 animate-fade-in">
+        <div className="text-center animate-scale-in">
+          <h1 className="font-display text-6xl md:text-8xl text-white mb-4">
             apoy
           </h1>
           <p 
-            className="font-display text-xl md:text-2xl text-primary-foreground/80 animate-fade-in"
-            style={{ animationDelay: "0.8s", animationFillMode: "both" }}
+            className="font-display text-xl md:text-2xl text-white/80 animate-fade-in"
+            style={{ animationDelay: "0.6s", animationFillMode: "both" }}
           >
             a piece of you
           </p>
